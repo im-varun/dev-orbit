@@ -14,6 +14,13 @@ class ProjectRepository:
         
         return [Project(**value) for value in data.values()]
     
+    def get_by_id(self, project_id):
+        data = self.ref.child(project_id).get()
+        if not data or not isinstance(data, dict):
+            return None
+        
+        return Project(**data)
+    
     def create(self, project: Project):
         project_id = str(uuid.uuid4())
         project.id = project_id
@@ -44,3 +51,6 @@ class TaskRepository:
         self.ref.child(task_id).set(task.model_dump())
 
         return task
+    
+project_repository = ProjectRepository()
+task_repository = TaskRepository()
