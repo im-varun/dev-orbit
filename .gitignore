@@ -1,3 +1,4 @@
-server/serviceAccountKey.json
-server/.env
 server/__pycache__/
+server/app/__pycache__/
+server/.env
+server/serviceAccountKey.json
