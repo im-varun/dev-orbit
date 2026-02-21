@@ -33,7 +33,7 @@ class ProjectRepository:
         return self.get_by_id(project_id)
     
     def delete(self, project_id):
-        from task_repository import task_repository
+        from app.repositories.task_repository import task_repository
 
         related_tasks = task_repository.get_by_project(project_id)
         for task in related_tasks:
