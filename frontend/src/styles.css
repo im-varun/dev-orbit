@@ -1,0 +1,382 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700&display=swap');
+
+:root {
+    --bg-app: #030712;
+    --bg-card: #0f172a;
+    --bg-card-hover: #1e293b;
+    --bg-page: #020617;
+    --text-primary: #f9fafb;
+    --text-secondary: #9ca3af;
+    --accent: #7c3aed;
+    --accent-glow: rgba(124, 58, 237, 0.3);
+    --border: #1f2937;
+    --border-focus: #7c3aed;
+    --danger: #f87171;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background: var(--bg-page);
+    color: var(--text-primary);
+    min-height: 100vh;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+}
+
+.has-back-nav {
+    padding-top: 60px; 
+}
+
+.header {
+    display: flex;
+    background: var(--bg-card);
+    padding: 24px;
+    border-radius: 10px;
+    margin-bottom: 24px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+}
+
+.header h1 {
+    font-family: "Plus Jakarta Sans", "Satoshi", sans-serif;
+    font-size: 24px;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+}
+
+.header-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title-row h1 {
+    margin: 0;
+    line-height: 1.2;
+}
+
+.title-row .button {
+    height: fit-content;
+    padding: 8px 18px;
+}
+
+.button {
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: white;
+    background-color: var(--accent);
+}
+
+.button:hover {
+    filter: brightness(1.2);
+    transform: translateY(-1px);
+}
+
+.project-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.project-card {
+    background: var(--bg-card);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    border: 2px solid transparent;
+    transition: all 0.3s;
+    cursor: pointer;
+    position: relative;
+}
+
+.project-card:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--accent);
+}
+
+.project-card h2 {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    padding-right: 60px;
+}
+
+.project-card p {
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    color: var(--text-primary);
+}
+
+.task-list {
+    background: var(--bg-card);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+}
+
+.task-card {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    border: 2px solid transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s;
+    position: relative; 
+    width: 100%;
+    overflow: hidden;
+}
+
+.task-card:hover {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: var(--accent);
+}
+
+.task-card:last-child {
+    margin-bottom: 0;
+}
+
+.task-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-right: 60px; 
+    flex: 1;
+    min-width: 0;
+}
+
+.task-content span {
+    font-size: 15px;
+    color: var(--text-primary);
+    word-break: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.4;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: var(--text-secondary);
+    opacity: 0.5;
+}
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: var(--bg-card);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    max-width: 500px;
+    width: 90%;
+    border: 1px solid var(--border);
+}
+
+.modal-content h2 {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 32px;
+    color: var(--text-primary);
+}
+
+.modal-title {
+    text-align: left;
+    margin-bottom: 28px;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 32px;
+}
+
+.modal-actions .button {
+    padding: 10px 24px;
+    min-width: 100px;
+}
+
+.form-group {
+    margin-bottom: 24px;
+}
+
+.form-group label {
+    font-weight: 500;
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+}
+
+.form-group input, .form-group textarea {
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--border);
+    border-radius: 5px;
+    background: var(--bg-page);
+    color: var(--text-primary);
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+.delete-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.task-card .delete-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 15px;
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+}
+
+.project-card:hover .delete-button, 
+.task-card:hover .delete-button {
+    opacity: 1;
+    visibility: visible;
+}
+
+.delete-button:hover {
+    color: var(--danger);
+}
+
+.back-link {
+    position: absolute;
+    top: 20px;     
+    left: 20px;    
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    opacity: 0.7;
+}
+
+.back-link:hover {
+    color: var(--text-primary);
+    opacity: 1;
+    transform: translateX(-4px);
+}
+
+.loading {
+    text-align: center;
+    padding: 20px;
+    color: var(--text-primary);
+}
+
+.empty-state {
+    text-align: center;
+    padding: 40px;
+    color: var(--text-primary);
+}
+
+.description-container,
+.task-list-container {
+    background: var(--bg-card);
+    border-radius: 10px;
+    margin-bottom: 24px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.description-container-header, 
+.task-list-header {
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.description-container-header h2,
+.task-list-header h2 {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.description-container-content {
+    padding: 20px;
+    color: var(--text-primary);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.task-count {
+    font-size: 16px;
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2px 8px;
+    border-radius: 5px;
+}
