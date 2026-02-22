@@ -8,7 +8,7 @@ Dev Orbit is a modern single-page application (SPA) designed for streamlined pro
 - Reactive Frontend: Vue 3 composition API for dynamic task and project updates.
 - Project Hub: Dashboard for creating and deleting projects with persistent storage.
 - Task Workspace: Individual project views with task completion toggles and description boxes.
-- Custom UI: Dark-mode interface using Inter and Plus Jakarta Sans typography and a "Deep Space" theme for an immersive experience.
+- Custom UI: Dark-mode interface using Inter and Plus Jakarta Sans typography with a "Deep Space" theme for an immersive experience.
 
 ## Screenshots
 
